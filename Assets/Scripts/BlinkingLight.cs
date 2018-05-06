@@ -22,14 +22,13 @@
      public IEnumerator flashNow ()
      {
 		 isBlinkComplete = false;
-         float waitTime = totalSeconds / 2;                        
          
          while (myLight.intensity < maxIntensity) {
-             myLight.intensity += 1; //Time.deltaTime / waitTime;
+             myLight.intensity += 1;
              yield return null;
          }
          while (myLight.intensity > 0) {
-             myLight.intensity -= 1; //Time.deltaTime / waitTime;
+             myLight.intensity -= 1;
              yield return null;
          }
 		 isBlinkComplete = true;

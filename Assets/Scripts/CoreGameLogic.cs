@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class CoreGameLogic : MonoBehaviour {
 
 	public int score = 0;
+	public int topScore = 0;
 	public int maxLives = 1;
 	public int maxLevel = 10;
 	public int bonusDecrement = 3;
@@ -40,8 +41,17 @@ public class CoreGameLogic : MonoBehaviour {
 	}
 
 	void Update () {
-		
+
 		UpdateInGameUI ();
+
+		foreach (GameObject topScoreTextObject in GameObject.FindGameObjectsWithTag ("ScoreUI")) {
+			topScoreTextObject.GetComponent<Text> ().text = "SCORE: " + score.ToString ();
+		}
+
+		foreach (GameObject topScoreTextObject in GameObject.FindGameObjectsWithTag ("TopScoreUI")) {
+			topScoreTextObject.GetComponent<Text> ().text = "TOP SCORE: " + topScore.ToString ();
+		}
+
 		if (state == GameState.InGame && isBallInteractionEnabled) {
 			var isMoving = Input.GetButton ("LeftPaddle") || Input.GetButton ("RightPaddle");
 			if (isMoving && bubbleSound.isPlaying == false) {
@@ -52,7 +62,6 @@ public class CoreGameLogic : MonoBehaviour {
 
 	public void NewGame () {
 		ResetGame ();
-		InvokeRepeating ("ReduceBonus", 1, 0.3F);
 
 		levelCreator.MakeWall ();
 		GameObject.Destroy (currentPlatform);
@@ -99,17 +108,23 @@ public class CoreGameLogic : MonoBehaviour {
 		Debug.Log ("GAME OVER");
 		var gameOverScreen = (GameObject) Instantiate (Resources.Load ("GameOverUI"));
 		StartCoroutine (DestroyObjectAfter (gameOverScreen, 5.0f));
+		CancelInvoke ("ReduceBonus");
 		Invoke ("QuitGame", 5.0f);
 	}
 
 	public void OnBallThroughSuccessHole () {
 
+		CancelInvoke ("ReduceBonus");
 		isBallInteractionEnabled = false;
 		score += 100 + currentBonus;
 
+		if (score > topScore) {
+			topScore = score;
+		}
+
 		if (currentLevel >= maxLevel) {
-			GameOver();
-			themeSong.Play();
+			GameOver ();
+			themeSong.Play ();
 			return;
 		}
 
@@ -130,18 +145,22 @@ public class CoreGameLogic : MonoBehaviour {
 		}
 	}
 
+	public void OnBallContactWithPlatform () {
+		if (isBallInteractionEnabled) {
+			return;
+		}
+
+		isBallInteractionEnabled = true;
+		InvokeRepeating ("ReduceBonus", 1, 0.3F);
+	}
+
 	void UpdateInGameUI () {
 		if (state != GameState.InGame) {
 			return;
 		}
-		Text healthText = GameObject.Find ("LivesUI").GetComponent<Text> ();
-		healthText.text = "Lives: " + lives.ToString ();
-
-		Text scoreText = GameObject.Find ("ScoreUI").GetComponent<Text> ();
-		scoreText.text = "Score: " + score.ToString ();
 
 		Text bonusText = GameObject.Find ("BonusUI").GetComponent<Text> ();
-		bonusText.text = "Bonus: " + currentBonus.ToString ();
+		bonusText.text = "BONUS: " + currentBonus.ToString ();
 	}
 
 	void MakeMovingPlatform () {

@@ -12,7 +12,7 @@ public class MovablePlatformLogic : MonoBehaviour {
 
 	void OnCollisionEnter (Collision col) {
 		if (col.gameObject.tag == "Player") {
-			gameLogic.isBallInteractionEnabled = true;
+			gameLogic.OnBallContactWithPlatform();
 		}
 	}
 

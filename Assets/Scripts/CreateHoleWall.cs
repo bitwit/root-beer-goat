@@ -5,8 +5,8 @@ using UnityEngine;
 public class CreateHoleWall : MonoBehaviour {
 
 	private int colCount = 10;
-	private int baseChanceOfFailHole = 18;
-	private int difficultyIncrement = 5;
+	private int baseChanceOfFailHole = 20;
+	private int difficultyIncrement = 10;
 
 	private CoreGameLogic gameLogic;
 	private int successHolePositionRow = -1;

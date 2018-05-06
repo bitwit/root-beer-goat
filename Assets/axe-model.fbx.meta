@@ -1,60 +1,48 @@
 fileFormatVersion: 2
-guid: eeb659841ea724caa8abce9efe55aded
-timeCreated: 1525552048
+guid: 9c53a881b39384e4aa304960fcd99840
+timeCreated: 1525580750
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Cube
-    100004: Cylinder
-    100006: Cylinder.001
-    100008: Sphere
-    100010: Sphere.001
+    100002: Camera
+    100004: Plane
+    100006: Plane.001
+    100008: Plane.002
+    100010: Point
+    100012: Point.001
+    100014: Point.002
+    100016: Point.003
+    100018: Sun
     400000: //RootNode
-    400002: Cube
-    400004: Cylinder
-    400006: Cylinder.001
-    400008: Sphere
-    400010: Sphere.001
-    2100000: Material.001
-    2100002: Material.002
-    2100004: No Name
-    2100006: Material.003
-    2100008: Material.004
-    2300000: //RootNode
-    2300002: Cube
-    2300004: Cylinder
-    2300006: Cylinder.001
-    2300008: Sphere
-    2300010: Sphere.001
-    3300000: //RootNode
-    3300002: Cube
-    3300004: Cylinder
-    3300006: Cylinder.001
-    3300008: Sphere
-    3300010: Sphere.001
-    4300000: Cube
-    4300002: Cylinder.001
-    4300004: Sphere.001
-    4300006: Sphere
-    4300008: Cylinder
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.003
-    second: {fileID: 2100000, guid: f88a8b71318724838a7507b555d326e5, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.004
-    second: {fileID: 2100000, guid: f24929892c03841e28c7ce45579b0901, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: No Name
-    second: {fileID: 2100000, guid: ec6a88ac1895448d68fd52b2e5008f3a, type: 2}
+    400002: Camera
+    400004: Plane
+    400006: Plane.001
+    400008: Plane.002
+    400010: Point
+    400012: Point.001
+    400014: Point.002
+    400016: Point.003
+    400018: Sun
+    2000000: Camera
+    2100000: axe texture
+    2100002: No Name
+    2300000: Plane
+    2300002: Plane.001
+    2300004: Plane.002
+    3300000: Plane
+    3300002: Plane.001
+    3300004: Plane.002
+    4300000: Plane
+    4300002: Plane.001
+    4300004: Plane.002
+    10800000: Point
+    10800002: Point.001
+    10800004: Point.002
+    10800006: Point.003
+    10800008: Sun
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
