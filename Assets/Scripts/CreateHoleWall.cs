@@ -60,6 +60,11 @@ public class CreateHoleWall : MonoBehaviour {
 				GenerateHoleOfTypeAt (resourceName, r, c);
 			}
 		}
+
+		for (int c = 0; c < colCount; c++) {
+			var resourceName = "FoamBubble";
+			GenerateHoleOfTypeAt (resourceName, gameLogic.maxLevel, c);
+		}
 	}
 
 	void GenerateHoleOfTypeAt (string type, int row, int col) {
