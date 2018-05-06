@@ -42,7 +42,7 @@ public class CameraFollow : MonoBehaviour {
 		if (isRepositioning)
 			return;
 
-		if (gameLogic.state == GameState.InGame) {
+		if (gameLogic.state != GameState.Welcome) {
 			var newTransform = transform;
 			newTransform.position = new Vector3 (inGameTransform.position.x, target.position.y, inGameTransform.position.z);
 			newTransform.rotation = Quaternion.Euler (0, 0, 0);

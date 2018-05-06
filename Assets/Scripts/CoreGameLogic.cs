@@ -81,6 +81,13 @@ public class CoreGameLogic : MonoBehaviour {
 	}
 
 	public void QuitGame () {
+		if (state == GameState.GameOver) {
+			return;
+		}
+		PerformEndGameCleanUp();
+	}
+
+	void PerformEndGameCleanUp() {
 		isBallInteractionEnabled = false;
 		CancelInvoke ("ReduceBonus");
 		GameObject.Destroy (currentUI);
@@ -105,11 +112,11 @@ public class CoreGameLogic : MonoBehaviour {
 	}
 
 	void GameOver () {
-		Debug.Log ("GAME OVER");
+		state = GameState.GameOver;
 		var gameOverScreen = (GameObject) Instantiate (Resources.Load ("GameOverUI"));
 		StartCoroutine (DestroyObjectAfter (gameOverScreen, 5.0f));
 		CancelInvoke ("ReduceBonus");
-		Invoke ("QuitGame", 5.0f);
+		Invoke ("PerformEndGameCleanUp", 5.0f);
 	}
 
 	public void OnBallThroughSuccessHole () {
