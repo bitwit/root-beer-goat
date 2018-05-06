@@ -169,9 +169,11 @@ public class CoreGameLogic : MonoBehaviour {
 			StartCoroutine (RemovePlatform (currentPlatform));
 		}
 
-		currentPlatform = (GameObject) Instantiate (Resources.Load ("MovingPlatform"));
-		var transform = currentPlatform.GetComponent<Transform> ();
+		var newPlatform = (GameObject) Instantiate (Resources.Load ("MovingPlatform"));
+		var transform = newPlatform.GetComponent<Transform> ();
 		transform.position = new Vector3 (1f, -10, 1.2f);
+		StartCoroutine (MovePlatformUp (transform));
+		currentPlatform = newPlatform;
 	}
 
 	public IEnumerator RemovePlatform (GameObject platform) {
@@ -180,13 +182,28 @@ public class CoreGameLogic : MonoBehaviour {
 
 		float totalTime = 0;
 
-		while (totalTime < 2) {
+		while (totalTime < 2.0f) {
 			transform.Translate (Vector3.up * Time.deltaTime * 10, Space.World);
 			totalTime += Time.deltaTime;
 			yield return null;
 		}
 
 		GameObject.Destroy (platform);
+		yield return null;
+	}
+
+	public IEnumerator MovePlatformUp (Transform transform) {
+
+		float totalTime = 0;
+
+		while (totalTime < 2.0f) {
+			if (transform) {
+				transform.Translate (Vector3.up * Time.deltaTime * 2, Space.World);
+			}
+			totalTime += Time.deltaTime;
+			yield return null;
+		}
+
 		yield return null;
 	}
 

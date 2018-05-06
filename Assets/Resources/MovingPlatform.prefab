@@ -24,8 +24,8 @@ GameObject:
   - component: {fileID: 23326385048766278}
   - component: {fileID: 114682202590605918}
   - component: {fileID: 54819433753198570}
-  m_Layer: 0
-  m_Name: RightPaddle
+  m_Layer: 1
+  m_Name: LeftPaddle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,8 +44,8 @@ GameObject:
   - component: {fileID: 23314934455445702}
   - component: {fileID: 114170515387889580}
   - component: {fileID: 54175037030002112}
-  m_Layer: 0
-  m_Name: LeftPaddle
+  m_Layer: 1
+  m_Name: RightPaddle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 33458210482221978}
   - component: {fileID: 65659965428989674}
   - component: {fileID: 23030028227218064}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 33041209663078898}
   - component: {fileID: 65367240547843220}
   - component: {fileID: 23999086179604152}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Cube (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 33376983209616004}
   - component: {fileID: 65277214241342778}
   - component: {fileID: 23782146312362396}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 33098065845807456}
   - component: {fileID: 65569576552410186}
   - component: {fileID: 23257241267185576}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -251,7 +251,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1331142830329834}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.3581586, y: -5.819468, z: -3.8700004}
+  m_LocalPosition: {x: 66.83736, y: 23.36008, z: -91.570404}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4023092528193528}
@@ -483,7 +483,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d7e56d480c281456b92f599a6bf6b10f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -673,7 +673,7 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1843005005218454}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 01571ba68fb2dad46aa03094ab219579, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -716,6 +716,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   inputName: RightPaddle
+  otherPaddleTransform: {fileID: 4822696156688348}
 --- !u!114 &114274615901737512
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -740,6 +741,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   inputName: LeftPaddle
+  otherPaddleTransform: {fileID: 4693856641884328}
 --- !u!136 &136005824129938314
 CapsuleCollider:
   m_ObjectHideFlags: 1
